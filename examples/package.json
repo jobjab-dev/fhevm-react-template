@@ -1,0 +1,27 @@
+{
+  "name": "fhevm-sdk-examples",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "01": "tsx 01-init-encrypt.ts",
+    "02": "tsx 02-batch-encrypt.ts",
+    "03": "tsx 03-struct-encrypt.ts",
+    "04": "tsx 04-user-decrypt-eip712.ts",
+    "05": "tsx 05-public-decrypt.ts",
+    "06": "tsx 06-contract-helpers.ts",
+    "07": "tsx 07-cache-performance.ts",
+    "08": "tsx 08-error-handling.ts"
+  },
+  "dependencies": {
+    "jobjab-fhevm-sdk": "^0.1.0",
+    "ethers": "^6.13.4",
+    "@zama-fhe/relayer-sdk": "^0.2.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0"
+  }
+}
+

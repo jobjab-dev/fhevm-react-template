@@ -115,7 +115,9 @@ cd packages/cli && pnpm install && pnpm build
 | When You Need | Read This |
 |---------------|-----------|
 | **5-minute start** | [QUICKSTART.md](QUICKSTART.md) |
-| **Code examples** | [COOKBOOK.md](COOKBOOK.md) - 29 recipes |
+| **Runnable examples** | [examples/](examples/) - 10 .ts files |
+| **API docs (detailed)** | [docs/](docs/) - Per-function docs |
+| **Code recipes** | [COOKBOOK.md](COOKBOOK.md) - 29 patterns |
 | **Complete API** | [API_REFERENCE.md](API_REFERENCE.md) |
 | **Problems?** | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) |
 | **Security** | [SECURITY.md](SECURITY.md) |
@@ -222,19 +224,33 @@ fhevm check         # Health check
 
 ---
 
-## 📦 What's Included
+## 📦 What's in This Repo
 
 ```
-packages/
-├── fhevm-sdk/       # SDK (framework-agnostic core + React adapter)
-├── cli/             # CLI tool (4 commands)
-├── nextjs/          # Next.js example app
-└── hardhat/         # Smart contracts
-
-examples/
-├── nodejs/          # Node.js example
-└── vanilla-js/      # Vanilla JS example
+fhevm-react-template/
+│
+├── packages/
+│   ├── fhevm-sdk/       ⭐ Universal FHEVM SDK (npm: fhevm-sdk-universal)
+│   ├── cli/             ⚡ CLI tool (4 commands)
+│   ├── nextjs/          🎨 Next.js showcase app (full frontend demo)
+│   └── hardhat/         🔧 Smart contracts (FHECounter example)
+│
+└── examples/            📚 Runnable TypeScript examples
+    ├── 01-basic-encryption.ts      # Encrypt value
+    ├── 02-batch-encryption.ts      # Batch ops (3-5x faster)
+    ├── 03-user-decryption.ts       # Decrypt with EIP-712
+    ├── 04-contract-call.ts         # Call contract
+    ├── 05-private-balance.ts       # Read & decrypt balance
+    ├── nodejs/                     # Node.js app
+    └── vanilla-js/                 # Browser app
 ```
+
+**This repo includes:**
+- ✅ SDK package (publishable)
+- ✅ Full Next.js frontend demo
+- ✅ Smart contracts
+- ✅ Runnable examples (.ts files)
+- ✅ CLI tool
 
 ---
 

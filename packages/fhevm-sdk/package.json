@@ -1,5 +1,5 @@
 {
-  "name": "fhevm-sdk",
+  "name": "jobjab-fhevm-sdk",
   "version": "0.1.0",
   "description": "Universal, framework-agnostic SDK for building confidential dApps with FHEVM",
   "keywords": [
@@ -18,13 +18,13 @@
   "author": "Zama Bounty Program Contributor",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/fhevm-react-template"
+    "url": "https://github.com/jobjab-dev/fhevm-react-template"
   },
   "bugs": {
-    "url": "https://github.com/your-username/fhevm-react-template/issues"
+    "url": "https://github.com/jobjab-dev/fhevm-react-template/issues"
   },
-  "homepage": "https://github.com/your-username/fhevm-react-template#readme",
-  "private": true,
+  "homepage": "https://github.com/jobjab-dev/fhevm-react-template#readme",
+  "private": false,
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -64,7 +64,9 @@
     "watch": "tsc -p tsconfig.json --watch",
     "clean": "rm -rf dist",
     "test": "vitest run --coverage",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "idb": "^8.0.3"
