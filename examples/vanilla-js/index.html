@@ -229,8 +229,10 @@
     </div>
   </div>
 
-  <!-- Import SDK from CDN or local build -->
+  <!-- Import SDK - requires SDK to be built first -->
   <script type="module">
+    // Note: Build SDK first with: cd ../../packages/fhevm-sdk && pnpm build
+    // Or use from CDN when available
     import { createFhevmClient } from '../../packages/fhevm-sdk/dist/core/FhevmClient.js';
     import { ethers } from 'https://cdn.jsdelivr.net/npm/ethers@6/+esm';
 

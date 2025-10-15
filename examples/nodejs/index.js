@@ -8,7 +8,7 @@
  *   node index.js
  */
 
-import { createFhevmClient } from '../../packages/fhevm-sdk/dist/core/FhevmClient.js';
+import { createFhevmClient } from 'jobjab-fhevm-sdk';
 import { ethers } from 'ethers';
 import dotenv from 'dotenv';
 

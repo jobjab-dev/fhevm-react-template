@@ -1,6 +1,6 @@
 {
   "name": "jobjab-fhevm-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Universal, framework-agnostic SDK for building confidential dApps with FHEVM",
   "keywords": [
     "fhevm",
@@ -31,32 +31,28 @@
   "types": "src/index.ts",
   "exports": {
     ".": {
-      "types": "./src/index.ts",
-      "default": "./dist/index.js"
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     },
     "./core": {
-      "types": "./src/core/index.ts",
-      "default": "./dist/core/index.js"
+      "import": "./dist/core/index.js",
+      "types": "./dist/core/index.d.ts"
     },
     "./adapters/react": {
-      "types": "./src/adapters/react/index.ts",
-      "default": "./dist/adapters/react/index.js"
+      "import": "./dist/adapters/react/index.js",
+      "types": "./dist/adapters/react/index.d.ts"
     },
     "./components/react": {
-      "types": "./src/components/react/index.ts",
-      "default": "./dist/components/react/index.js"
+      "import": "./dist/components/react/index.js",
+      "types": "./dist/components/react/index.d.ts"
     },
     "./storage": {
-      "types": "./src/storage/index.ts",
-      "default": "./dist/storage/index.js"
-    },
-    "./types": {
-      "types": "./src/fhevmTypes.ts",
-      "default": "./dist/fhevmTypes.js"
+      "import": "./dist/storage/index.js",
+      "types": "./dist/storage/index.d.ts"
     },
     "./react": {
-      "types": "./src/react/index.ts",
-      "default": "./dist/react/index.js"
+      "import": "./dist/react/index.js",
+      "types": "./dist/react/index.d.ts"
     }
   },
   "scripts": {

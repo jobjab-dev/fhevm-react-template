@@ -7,5 +7,6 @@ packages/*/dist
 packages/*/.env
 packages/*/.turbo
 packages/*/coverage
+package-lock.json
 tmp*
 .vscode

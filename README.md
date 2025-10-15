@@ -10,38 +10,34 @@
 
 ## ⚡ Quick Start (Choose Your Path)
 
-### 🎨 I want to try the demo now
+### 🚀 Quick Demo
 
+**Prerequisites:**
 ```bash
-git clone <your-fork>
-cd fhevm-react-template
-pnpm install
-
-# One command to start everything:
-pnpm all:demo
+npm install -g pnpm
 ```
 
-Open http://localhost:3000 🎉
-
----
-
-### 🔧 I want to build step-by-step
-
+**Run:**
 ```bash
-# 1. Setup
-git clone <your-fork>
+git clone https://github.com/jobjab-dev/fhevm-react-template
 cd fhevm-react-template
 git submodule update --init --recursive
 pnpm install
-pnpm sdk:build
 
-# 2. Run (3 terminals)
+# Option A: One command
+pnpm all:demo
+
+# Option B: Step-by-step (3 terminals)
 pnpm chain          # Terminal 1
-pnpm contracts:all  # Terminal 2
+pnpm contracts:all  # Terminal 2 (wait 5 sec)
 pnpm start          # Terminal 3
 ```
 
-Open http://localhost:3000 ✅
+**Try the demo:**
+1. Open http://localhost:3000
+2. Connect MetaMask → **Hardhat Local** network
+3. Import account: `0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80`
+4. Click Increment → Decrypt → Done! ✅
 
 ---
 

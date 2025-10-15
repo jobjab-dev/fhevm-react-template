@@ -139,9 +139,21 @@ export const useFHECounterWagmi = (parameters: {
     if (!functionAbi.inputs || functionAbi.inputs.length === 0)
       return { method: undefined as string | undefined, error: `No inputs found for ${functionName}` } as const;
     const firstInput = functionAbi.inputs[0]!;
-    // Convert external type to FHE type
-    const fheType = externalTypeToFheType(firstInput.internalType);
-    return { method: fheType, error: undefined } as const;
+    
+    // Map internal type to encryption method name
+    const typeToMethod: Record<string, string> = {
+      'externalEuint8': 'add8',
+      'externalEuint16': 'add16',
+      'externalEuint32': 'add32',
+      'externalEuint64': 'add64',
+      'externalEuint128': 'add128',
+      'externalEuint256': 'add256',
+      'externalEbool': 'addBool',
+      'externalEaddress': 'addAddress',
+    };
+    
+    const method = typeToMethod[firstInput.internalType] || 'add32';
+    return { method, error: undefined } as const;
   };
 
   const updateCounter = useCallback(

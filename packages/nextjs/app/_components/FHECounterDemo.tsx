@@ -114,7 +114,7 @@ export const FHECounterDemo = () => {
       {/* Header */}
       <div className="text-center mb-8 text-black">
         <h1 className="text-3xl font-bold mb-2">FHE Counter Demo</h1>
-        <p className="text-gray-600">Interact with the Fully Homomorphic Encryption Counter contract</p>
+        <p className="text-gray-100">Interact with the Fully Homomorphic Encryption Counter contract</p>
       </div>
 
       {/* Count Handle Display */}
