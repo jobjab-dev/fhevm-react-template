@@ -3,14 +3,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useDeployedContractInfo } from "../helper";
 import { useWagmiEthers } from "../wagmi/useWagmiEthers";
-import { FhevmInstance } from "@fhevm-sdk";
+import { FhevmInstance, externalTypeToFheType } from "fhevm-sdk";
 import {
   buildParamsFromAbi,
-  getEncryptionMethod,
   useFHEDecrypt,
   useFHEEncryption,
   useInMemoryStorage,
-} from "@fhevm-sdk";
+} from "fhevm-sdk";
 import { ethers } from "ethers";
 import type { Contract } from "~~/utils/helper/contract";
 import type { AllowedChainIds } from "~~/utils/helper/networks";
@@ -140,7 +139,9 @@ export const useFHECounterWagmi = (parameters: {
     if (!functionAbi.inputs || functionAbi.inputs.length === 0)
       return { method: undefined as string | undefined, error: `No inputs found for ${functionName}` } as const;
     const firstInput = functionAbi.inputs[0]!;
-    return { method: getEncryptionMethod(firstInput.internalType), error: undefined } as const;
+    // Convert external type to FHE type
+    const fheType = externalTypeToFheType(firstInput.internalType);
+    return { method: fheType, error: undefined } as const;
   };
 
   const updateCounter = useCallback(

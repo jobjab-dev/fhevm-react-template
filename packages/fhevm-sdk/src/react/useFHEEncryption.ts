@@ -11,7 +11,8 @@ export type EncryptResult = {
 };
 
 // Map external encrypted integer type to RelayerEncryptedInput builder method
-export const getEncryptionMethod = (internalType: string) => {
+// Legacy helper - use core/encryption.ts for new code
+const getEncryptionMethodLegacy = (internalType: string) => {
   switch (internalType) {
     case "externalEbool":
       return "addBool" as const;
@@ -36,13 +37,17 @@ export const getEncryptionMethod = (internalType: string) => {
 };
 
 // Convert Uint8Array or hex-like string to 0x-prefixed hex string
-export const toHex = (value: Uint8Array | string): `0x${string}` => {
+// Legacy helper - use core/encryption.ts for new code
+const toHexLegacy = (value: Uint8Array | string): `0x${string}` => {
   if (typeof value === "string") {
     return (value.startsWith("0x") ? value : `0x${value}`) as `0x${string}`;
   }
   // value is Uint8Array
   return ("0x" + Buffer.from(value).toString("hex")) as `0x${string}`;
 };
+
+// Note: getEncryptionMethod and toHex are available from core/encryption
+// These legacy versions are kept for internal use only
 
 // Build contract params from EncryptResult and ABI for a given function
 export const buildParamsFromAbi = (enc: EncryptResult, abi: any[], functionName: string): any[] => {
@@ -54,7 +59,7 @@ export const buildParamsFromAbi = (enc: EncryptResult, abi: any[], functionName:
     switch (input.type) {
       case "bytes32":
       case "bytes":
-        return toHex(raw);
+        return toHexLegacy(raw);
       case "uint256":
         return BigInt(raw as unknown as string);
       case "address":
@@ -64,7 +69,7 @@ export const buildParamsFromAbi = (enc: EncryptResult, abi: any[], functionName:
         return Boolean(raw);
       default:
         console.warn(`Unknown ABI param type ${input.type}; passing as hex`);
-        return toHex(raw);
+        return toHexLegacy(raw);
     }
   });
 };

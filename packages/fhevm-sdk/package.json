@@ -1,6 +1,29 @@
 {
-  "name": "@fhevm-sdk",
+  "name": "fhevm-sdk",
   "version": "0.1.0",
+  "description": "Universal, framework-agnostic SDK for building confidential dApps with FHEVM",
+  "keywords": [
+    "fhevm",
+    "fhe",
+    "encryption",
+    "blockchain",
+    "ethereum",
+    "zama",
+    "privacy",
+    "confidential",
+    "dapp",
+    "react",
+    "typescript"
+  ],
+  "author": "Zama Bounty Program Contributor",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/fhevm-react-template"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/fhevm-react-template/issues"
+  },
+  "homepage": "https://github.com/your-username/fhevm-react-template#readme",
   "private": true,
   "type": "module",
   "main": "dist/index.js",
@@ -14,6 +37,14 @@
     "./core": {
       "types": "./src/core/index.ts",
       "default": "./dist/core/index.js"
+    },
+    "./adapters/react": {
+      "types": "./src/adapters/react/index.ts",
+      "default": "./dist/adapters/react/index.js"
+    },
+    "./components/react": {
+      "types": "./src/components/react/index.ts",
+      "default": "./dist/components/react/index.js"
     },
     "./storage": {
       "types": "./src/storage/index.ts",

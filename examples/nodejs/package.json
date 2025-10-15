@@ -1,0 +1,26 @@
+{
+  "name": "fhevm-nodejs-example",
+  "version": "1.0.0",
+  "description": "FHEVM SDK Node.js Example - Server-side encryption/decryption",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "encrypt": "node encrypt.js",
+    "decrypt": "node decrypt.js"
+  },
+  "keywords": [
+    "fhevm",
+    "encryption",
+    "nodejs",
+    "fhe"
+  ],
+  "author": "",
+  "license": "BSD-3-Clause-Clear",
+  "dependencies": {
+    "ethers": "^6.13.4",
+    "@zama-fhe/relayer-sdk": "^0.2.0",
+    "dotenv": "^16.4.5"
+  }
+}
+
