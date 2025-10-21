@@ -6,8 +6,8 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)](https://www.typescriptlang.org/)
 [![npm](https://img.shields.io/badge/npm-jobjab--fhevm--sdk-red.svg)](https://www.npmjs.com/package/jobjab-fhevm-sdk)
 
-**🌐 Live Demo:** https://jobjab-fhevm-react-template-nextjs.vercel.app/
-**📦 npm Package:** https://www.npmjs.com/package/jobjab-fhevm-sdk
+**🌐 Live Demo:** https://jobjab-fhevm-react-template-nextjs.vercel.app/  
+**📦 npm Package:** https://www.npmjs.com/package/jobjab-fhevm-sdk  
 **📚 Full Documentation:** https://github.com/jobjab-dev/fhevm-react-template/tree/main/docs
 
 **Works with:** React • Vue • Node.js • Vanilla JS • Any JavaScript framework
