@@ -12,4 +12,3 @@ packages/hardhat/artifacts
 packages/hardhat/cache
 packages/hardhat/deployments/localhost
 packages/fhevm-sdk/coverage
-
