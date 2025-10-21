@@ -8,7 +8,7 @@
 [![npm](https://img.shields.io/badge/npm-jobjab--fhevm--sdk-red.svg)](https://www.npmjs.com/package/jobjab-fhevm-sdk)
 
 **🌐 Live Demo:** [https://fhevm-sdk-demo.vercel.app](https://fhevm-sdk-demo.vercel.app)  
-**📦 npm Package:** `jobjab-fhevm-sdk`  
+**📦 npm Package:** [https://www.npmjs.com/package/jobjab-fhevm-sdk](https://www.npmjs.com/package/jobjab-fhevm-sdk)
 **📚 Full Documentation:** [docs/](docs/)
 
 **Works with:** React • Vue • Node.js • Vanilla JS • Any JavaScript framework
