@@ -9,7 +9,7 @@
  * 
  * ### Core (Framework-Agnostic)
  * ```typescript
- * import { createFhevmClient } from 'fhevm-sdk/core';
+ * import { createFhevmClient } from 'jobjab-fhevm-sdk/core';
  * 
  * const client = createFhevmClient({ network: 'sepolia' });
  * await client.init();
@@ -19,7 +19,7 @@
  * 
  * ### React
  * ```tsx
- * import { FhevmProvider, useFhevmClient, useEncrypt } from 'fhevm-sdk/adapters/react';
+ * import { FhevmProvider, useFhevmClient, useEncrypt } from 'jobjab-fhevm-sdk/adapters/react';
  * 
  * function App() {
  *   return (
@@ -38,7 +38,7 @@
  * 
  * ### Components
  * ```tsx
- * import { EncryptedInput, DecryptButton, CipherPreview } from 'fhevm-sdk/components/react';
+ * import { EncryptedInput, DecryptButton, CipherPreview } from 'jobjab-fhevm-sdk/components/react';
  * 
  * <EncryptedInput type="euint32" onEncrypted={handler} />
  * <DecryptButton handle="0x..." signer={signer} />

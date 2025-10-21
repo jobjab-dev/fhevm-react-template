@@ -1,43 +1,45 @@
 # 🔐 Universal FHEVM SDK
 
-> Framework-agnostic SDK for building confidential dApps - works with React, Vue, Node.js, or Vanilla JS
+> Production-ready, framework-agnostic SDK for building confidential dApps with Fully Homomorphic Encryption
 
 [![License](https://img.shields.io/badge/license-BSD--3--Clause--Clear-blue.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)](https://www.typescriptlang.org/)
-[![Tests](https://img.shields.io/badge/tests-43%2F43%20passing-brightgreen.svg)]()
+[![Tests](https://img.shields.io/badge/tests-142%2F142%20passing-brightgreen.svg)]()
+[![npm](https://img.shields.io/badge/npm-jobjab--fhevm--sdk-red.svg)](https://www.npmjs.com/package/jobjab-fhevm-sdk)
+
+**🌐 Live Demo:** [https://fhevm-sdk-demo.vercel.app](https://fhevm-sdk-demo.vercel.app)  
+**📦 npm Package:** `jobjab-fhevm-sdk`  
+**📚 Full Documentation:** [docs/](docs/)
+
+**Works with:** React • Vue • Node.js • Vanilla JS • Any JavaScript framework
 
 ---
 
-## ⚡ Quick Start (Choose Your Path)
+## ⚡ Quick Start
 
-### 🚀 Quick Demo
+**Prerequisites:** Node.js ≥ 20.0.0 + pnpm
 
-**Prerequisites:**
-```bash
-npm install -g pnpm
-```
-
-**Run:**
 ```bash
 git clone https://github.com/jobjab-dev/fhevm-react-template
 cd fhevm-react-template
-git submodule update --init --recursive
-pnpm install
-
-# Option A: One command
-pnpm all:demo
-
-# Option B: Step-by-step (3 terminals)
-pnpm chain          # Terminal 1
-pnpm contracts:all  # Terminal 2 (wait 5 sec)
-pnpm start          # Terminal 3
 ```
 
-**Try the demo:**
+**Terminal 1** - Start blockchain:
+```bash
+pnpm chain
+```
+
+**Terminal 2** - Run demo:
+```bash
+pnpm all:demo
+# Installs → Builds SDK → Deploys contracts → Starts app
+```
+
+**Try it:**
 1. Open http://localhost:3000
-2. Connect MetaMask → **Hardhat Local** network
-3. Import account: `0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80`
-4. Click Increment → Decrypt → Done! ✅
+2. Connect MetaMask to **Hardhat Local**
+3. Import test account: `0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80`
+4. Increment counter → Decrypt → See your private value! ✅
 
 ---
 
@@ -46,8 +48,8 @@ pnpm start          # Terminal 3
 ### For React Developers
 
 ```tsx
-import { FhevmProvider, useEncrypt, useDecrypt } from 'fhevm-sdk/adapters/react';
-import { EncryptedInput, DecryptButton } from 'fhevm-sdk/components/react';
+import { FhevmProvider, useEncrypt, useDecrypt } from 'jobjab-fhevm-sdk/adapters/react';
+import { EncryptedInput, DecryptButton } from 'jobjab-fhevm-sdk/components/react';
 
 // 1. Wrap app
 <FhevmProvider config={{ network: 'sepolia' }}>
@@ -74,7 +76,7 @@ function MyComponent() {
 ### For Backend/Node.js Developers
 
 ```typescript
-import { createFhevmClient } from 'fhevm-sdk/core';
+import { createFhevmClient } from 'jobjab-fhevm-sdk/core';
 
 const client = await createFhevmClient({ network: 'sepolia' });
 
@@ -140,60 +142,36 @@ cd packages/cli && pnpm install && pnpm build
 - Performance: Batch operations (3-5x faster)
 
 **Quality:**
-- 43/43 tests passing
+- 142/142 tests passing
 - Full TypeScript support
 - CI/CD with GitHub Actions
 
+**Live Showcase:**
+- 🔢 **Private Counter** - Fully functional encrypted counter with increment/decrement
+- 📖 [More Showcase Ideas](examples/showcase/) - Secret Bidding, Private Poll concepts
+
 ---
 
-## 💡 Core Concepts
+## 💡 How It Works
 
-### Encryption Flow
+**3-Step Process:**
 
-```typescript
-// 1. Create client
-const client = createFhevmClient({ network: 'sepolia' });
-await client.init();
-
-// 2. Encrypt value
-const encrypted = await client.encrypt(
-  contractAddress,
-  userAddress,
-  { type: 'euint32', value: 42 }
-);
-
-// 3. Use in contract
-await contract.myFunction(encrypted.handles[0], encrypted.inputProof);
-```
-
-### Decryption Flow
+1. **Encrypt** → Client-side encryption with SDK
+2. **Compute** → Encrypted operations on-chain
+3. **Decrypt** → User reveals with EIP-712 signature
 
 ```typescript
-// 1. Generate keypair
-const keypair = client.generateKeypair();
+// Encrypt
+const enc = await client.encrypt(addr, user, { type: 'euint32', value: 42 });
 
-// 2. Create EIP-712 & sign
-const eip712 = client.createEIP712(keypair.publicKey, [contractAddress]);
-const sig = await signer.signTypedData(eip712.domain, eip712.types, eip712.message);
+// Use in contract
+await contract.increment(enc.handles[0], enc.inputProof);
 
-// 3. Decrypt
-const decrypted = await client.decrypt(
-  [{ handle, contractAddress }],
-  { ...keypair, signature: sig, ... }
-);
+// Decrypt to view
+const result = await client.decrypt([{ handle, contractAddress }], signature);
 ```
 
-### ACL in Contracts
-
-```solidity
-function myFunction(externalEuint32 input, bytes calldata proof) external {
-  euint32 value = FHE.fromExternal(input, proof);
-  
-  // Grant permissions
-  FHE.allowThis(value);        // Contract can use
-  FHE.allow(value, msg.sender); // User can decrypt
-}
-```
+📖 **Learn More:** [QUICKSTART.md](QUICKSTART.md) | [COOKBOOK.md](COOKBOOK.md) | [Examples](examples/)
 
 ---
 
@@ -210,7 +188,7 @@ pnpm start          # Start app
 
 # SDK
 pnpm sdk:build      # Build
-pnpm sdk:test       # Test (43 tests)
+pnpm sdk:test       # Test (142 tests)
 
 # CLI
 fhevm init          # Setup
@@ -220,33 +198,26 @@ fhevm check         # Health check
 
 ---
 
-## 📦 What's in This Repo
+## 📦 Repository Structure
 
 ```
-fhevm-react-template/
-│
-├── packages/
-│   ├── fhevm-sdk/       ⭐ Universal FHEVM SDK (npm: fhevm-sdk-universal)
-│   ├── cli/             ⚡ CLI tool (4 commands)
-│   ├── nextjs/          🎨 Next.js showcase app (full frontend demo)
-│   └── hardhat/         🔧 Smart contracts (FHECounter example)
-│
-└── examples/            📚 Runnable TypeScript examples
-    ├── 01-basic-encryption.ts      # Encrypt value
-    ├── 02-batch-encryption.ts      # Batch ops (3-5x faster)
-    ├── 03-user-decryption.ts       # Decrypt with EIP-712
-    ├── 04-contract-call.ts         # Call contract
-    ├── 05-private-balance.ts       # Read & decrypt balance
-    ├── nodejs/                     # Node.js app
-    └── vanilla-js/                 # Browser app
+packages/
+├── fhevm-sdk/    ⭐ Universal SDK (publishable to npm)
+├── cli/          ⚡ Command-line tool
+├── nextjs/       🎨 Next.js demo (Private Counter)
+└── hardhat/      🔧 Smart contracts
+
+examples/
+├── 01-10.ts      📝 10 TypeScript examples
+├── nodejs/       🟢 Node.js server
+├── vanilla-js/   🌐 Browser app
+├── vue/          💚 Vue 3 Composition API
+└── showcase/     💡 dApp ideas
 ```
 
-**This repo includes:**
-- ✅ SDK package (publishable)
-- ✅ Full Next.js frontend demo
-- ✅ Smart contracts
-- ✅ Runnable examples (.ts files)
-- ✅ CLI tool
+**Includes:** SDK • CLI • Contracts • Next.js Demo • 4 Framework Examples • 10 Code Examples
+
+🎨 **Live Demo:** [Private Counter →](examples/showcase/) | 💡 **More Ideas:** [Secret Bidding, Private Poll →](examples/showcase/)
 
 ---
 
@@ -258,12 +229,42 @@ fhevm-react-template/
 
 ---
 
+## ✨ Features
+
+**SDK Capabilities:**
+- ✅ Framework-agnostic core (works anywhere)
+- ✅ React hooks & components (wagmi-like API)
+- ✅ Batch encryption (3-5x faster)
+- ✅ User & public decryption
+- ✅ CLI tool (4 commands)
+- ✅ 57 error codes with helpful messages
+- ✅ Full TypeScript support
+- ✅ 43/43 tests passing
+
+📋 **[See Complete Feature List →](FEATURES.md)**
+
+---
+
 ## 📄 License
 
 BSD-3-Clause-Clear - See [LICENSE](LICENSE)
 
 ---
 
-**Made with ❤️ for the Zama Bounty Program - October 2025**
+## 🙏 Acknowledgments
 
-> **⚠️ This is a FORK** of [fhevm-react-template](https://github.com/zama-ai/fhevm-react-template)
+Built with [Zama's FHEVM](https://github.com/zama-ai/fhevm) - the leading Fully Homomorphic Encryption solution for Ethereum.
+
+Special thanks to the Zama team for pioneering confidential smart contracts and the FHE ecosystem.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read our contributing guidelines and submit pull requests.
+
+For major changes, please open an issue first to discuss proposed changes.
+
+---
+
+**Built with ❤️ for the confidential computing community**

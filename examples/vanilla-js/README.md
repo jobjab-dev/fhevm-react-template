@@ -69,7 +69,7 @@ http-server .
   <button onclick="encrypt()">Encrypt</button>
   
   <script type="module">
-    import { createFhevmClient } from 'fhevm-sdk/core';
+    import { createFhevmClient } from 'jobjab-fhevm-sdk/core';
     import { ethers } from 'ethers';
 
     // Connect wallet

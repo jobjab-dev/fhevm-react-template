@@ -50,7 +50,7 @@ PRIVATE_KEY=0x...
 ### Basic Usage
 
 ```javascript
-import { createFhevmClient } from 'fhevm-sdk/core';
+import { createFhevmClient } from 'jobjab-fhevm-sdk/core';
 
 // Create client
 const client = createFhevmClient({
@@ -130,7 +130,7 @@ console.log('Decrypted value:', decrypted['0x...']);
 
 ```javascript
 import express from 'express';
-import { createFhevmClient } from 'fhevm-sdk/core';
+import { createFhevmClient } from 'jobjab-fhevm-sdk/core';
 
 const app = express();
 const client = await createFhevmClient({ network: 'sepolia' });
@@ -202,7 +202,7 @@ cron.schedule('0 * * * *', async () => {
 
 ## 🚨 Troubleshooting
 
-### "Cannot find module 'fhevm-sdk'"
+### "Cannot find module 'jobjab-fhevm-sdk'"
 
 ```bash
 # Build the SDK first

@@ -1,0 +1,15 @@
+node_modules
+.git
+.cache
+*.log
+.DS_Store
+.env.local
+.env.*.local
+coverage
+*.tsbuildinfo
+.turbo
+packages/hardhat/artifacts
+packages/hardhat/cache
+packages/hardhat/deployments/localhost
+packages/fhevm-sdk/coverage
+

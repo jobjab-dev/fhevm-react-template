@@ -12,7 +12,6 @@ Complete API reference for jobjab-fhevm-sdk.
 ### Types
 
 - [EncryptionValue](EncryptionValue.md) - Input value types
-- [DecryptionSignature](DecryptionSignature.md) - EIP-712 signature
 - [ErrorCodes](ErrorCodes.md) - All error codes
 
 ### Functions
@@ -29,18 +28,11 @@ Complete API reference for jobjab-fhevm-sdk.
 
 - [useEncrypt](useEncrypt.md) - Encryption hook
 - [useDecrypt](useDecrypt.md) - Decryption hook
-- [useDecryptionSignature](useDecryptionSignature.md) - Signature management
-- [useFhevmClient](useFhevmClient.md) - Access client
 
 ### Components
 
 - [EncryptedInput](EncryptedInput.md) - Auto-encrypting input
 - [DecryptButton](DecryptButton.md) - One-click decrypt
-- [CipherPreview](CipherPreview.md) - Display ciphertext
-
-### Providers
-
-- [FhevmProvider](FhevmProvider.md) - Context provider
 
 ## 🔧 Utilities
 

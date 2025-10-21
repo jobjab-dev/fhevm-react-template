@@ -246,7 +246,7 @@ const myShowcase = await deploy("MyShowcase", {
 
 ```tsx
 // packages/nextjs/app/_components/MyShowcaseDemo.tsx
-import { useEncrypt, useDecrypt } from 'fhevm-sdk/adapters/react';
+import { useEncrypt, useDecrypt } from 'jobjab-fhevm-sdk/adapters/react';
 
 export function MyShowcaseDemo() {
   // Implementation

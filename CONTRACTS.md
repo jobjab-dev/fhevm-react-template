@@ -129,7 +129,7 @@ contract FHECounter {
 ### Usage from Frontend
 
 ```typescript
-import { useEncrypt, useDecrypt } from 'fhevm-sdk/adapters/react';
+import { useEncrypt, useDecrypt } from 'jobjab-fhevm-sdk/adapters/react';
 import deployedContracts from '~/contracts/deployedContracts';
 
 function Counter() {

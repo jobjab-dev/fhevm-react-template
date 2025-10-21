@@ -19,7 +19,7 @@ Common recipes and patterns for building with FHEVM SDK.
 **Use case:** Simple encrypted input
 
 ```typescript
-import { createFhevmClient } from 'fhevm-sdk/core';
+import { createFhevmClient } from 'jobjab-fhevm-sdk/core';
 
 const client = await createFhevmClient({ network: 'sepolia' });
 await client.init();
@@ -283,8 +283,8 @@ contract.on('Transfer', async (from, to, encryptedAmount) => {
 **Use case:** Full encryption with UI feedback
 
 ```tsx
-import { useEncrypt } from 'fhevm-sdk/adapters/react';
-import { EncryptedInput } from 'fhevm-sdk/components/react';
+import { useEncrypt } from 'jobjab-fhevm-sdk/adapters/react';
+import { EncryptedInput } from 'jobjab-fhevm-sdk/components/react';
 
 function TransferForm() {
   const [amount, setAmount] = useState(0);
@@ -325,7 +325,7 @@ function TransferForm() {
 **Use case:** Show progress during decryption
 
 ```tsx
-import { useDecrypt, useDecryptionSignature } from 'fhevm-sdk/adapters/react';
+import { useDecrypt, useDecryptionSignature } from 'jobjab-fhevm-sdk/adapters/react';
 
 function BalanceViewer({ handle }) {
   const { signature, sign, isSigning } = useDecryptionSignature({
@@ -557,7 +557,7 @@ if (result.success) {
 **Use case:** Graceful error handling with user feedback
 
 ```tsx
-import { isFhevmError, formatErrorMessage } from 'fhevm-sdk/core';
+import { isFhevmError, formatErrorMessage } from 'jobjab-fhevm-sdk/core';
 
 function MyComponent() {
   const handleOperation = async () => {
@@ -779,7 +779,7 @@ async function placeBid(
 
 ```typescript
 import express from 'express';
-import { createFhevmClient } from 'fhevm-sdk/core';
+import { createFhevmClient } from 'jobjab-fhevm-sdk/core';
 
 const app = express();
 const client = await createFhevmClient({ network: 'sepolia' });
@@ -815,7 +815,7 @@ app.listen(3000);
 ```typescript
 // app/api/encrypt/route.ts
 import { NextResponse } from 'next/server';
-import { createFhevmClient } from 'fhevm-sdk/core';
+import { createFhevmClient } from 'jobjab-fhevm-sdk/core';
 
 const client = await createFhevmClient({ network: 'sepolia' });
 

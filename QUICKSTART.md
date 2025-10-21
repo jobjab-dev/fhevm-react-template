@@ -96,8 +96,8 @@ pnpm install && pnpm build
 // app/my-component.tsx
 'use client';
 
-import { useFhevmClient, useEncrypt } from 'fhevm-sdk/adapters/react';
-import { EncryptedInput } from 'fhevm-sdk/components/react';
+import { useFhevmClient, useEncrypt } from 'jobjab-fhevm-sdk/adapters/react';
+import { EncryptedInput } from 'jobjab-fhevm-sdk/components/react';
 
 export function MyFirstFhevmComponent() {
   const client = useFhevmClient();
@@ -124,7 +124,7 @@ export function MyFirstFhevmComponent() {
 
 ```tsx
 // app/page.tsx
-import { FhevmProvider } from 'fhevm-sdk/adapters/react';
+import { FhevmProvider } from 'jobjab-fhevm-sdk/adapters/react';
 import { MyFirstFhevmComponent } from './my-component';
 
 export default function Page() {

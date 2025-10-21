@@ -430,7 +430,7 @@ import {
   validateEncryptionValue,
   toHex,
   formatEncryptionResult,
-} from 'fhevm-sdk/core';
+} from 'jobjab-fhevm-sdk/core';
 
 // Validate value before encryption
 validateEncryptionValue({ type: 'euint32', value: 42 });
@@ -450,7 +450,7 @@ import {
   isValidContractAddress,
   findEncryptedInputs,
   buildContractParams,
-} from 'fhevm-sdk/core';
+} from 'jobjab-fhevm-sdk/core';
 
 // Validate handle
 if (isCiphertextHandle(value)) {
@@ -476,7 +476,7 @@ import {
   isFhevmError,
   formatErrorMessage,
   FhevmErrorCode,
-} from 'fhevm-sdk/core';
+} from 'jobjab-fhevm-sdk/core';
 
 // Check error type
 if (isFhevmError(error)) {

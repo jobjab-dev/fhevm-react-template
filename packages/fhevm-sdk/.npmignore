@@ -1,0 +1,36 @@
+# Source files (only ship dist/)
+src/
+test/
+*.test.ts
+*.spec.ts
+
+# Build artifacts
+tsconfig.json
+tsconfig.tsbuildinfo
+vitest.config.ts
+vitest.setup.ts
+coverage/
+
+# Documentation
+*.md
+!README.md
+
+# Development files
+.git
+.gitignore
+.github
+.vscode
+.idea
+.DS_Store
+
+# Node
+node_modules
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Misc
+*.log
+.cache
+.turbo
+

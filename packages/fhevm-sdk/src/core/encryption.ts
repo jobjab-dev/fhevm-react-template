@@ -63,10 +63,31 @@ export function externalTypeToFheType(externalType: string): FheType {
 }
 
 /**
- * Validates encryption value
+ * Validates encryption value with comprehensive checks
  */
 export function validateEncryptionValue(value: EncryptionValue): void {
+  if (!value || typeof value !== 'object') {
+    throw createEncryptionError(
+      'Invalid encryption value: must be an object with type and value',
+      { value }
+    );
+  }
+
   const { type, value: val } = value;
+
+  if (!type) {
+    throw createEncryptionError(
+      'Missing FHE type in encryption value',
+      { value }
+    );
+  }
+
+  if (val === null || val === undefined) {
+    throw createEncryptionError(
+      `Value cannot be null or undefined for ${type}`,
+      { type, value: val }
+    );
+  }
 
   // Type-specific validation
   switch (type) {
@@ -106,10 +127,21 @@ export function validateEncryptionValue(value: EncryptionValue): void {
     }
 
     case 'eaddress':
-      if (typeof val !== 'string' || !val.match(/^0x[0-9a-fA-F]{40}$/)) {
+      if (typeof val !== 'string') {
         throw createEncryptionError(
-          `Invalid Ethereum address for ${type}`,
+          `Expected string for ${type}, got ${typeof val}`,
           { type, value: val }
+        );
+      }
+      if (!val.match(/^0x[0-9a-fA-F]{40}$/)) {
+        throw createEncryptionError(
+          `Invalid Ethereum address format for ${type}. Expected 0x followed by 40 hex characters.`,
+          { 
+            type, 
+            value: val,
+            expected: '0x + 40 hex chars (e.g., 0x1234...abcd)',
+            got: val
+          }
         );
       }
       break;
@@ -119,16 +151,34 @@ export function validateEncryptionValue(value: EncryptionValue): void {
     case 'ebytes256': {
       if (typeof val !== 'string') {
         throw createEncryptionError(
-          `Expected string for ${type}`,
+          `Expected hex string for ${type}, got ${typeof val}`,
           { type, value: val }
         );
       }
+      if (!val.startsWith('0x')) {
+        throw createEncryptionError(
+          `${type} value must start with '0x' prefix`,
+          { type, value: val, hint: 'Add 0x prefix to your hex string' }
+        );
+      }
+      const hexValue = val.replace('0x', '');
+      if (!/^[0-9a-fA-F]*$/.test(hexValue)) {
+        throw createEncryptionError(
+          `Invalid hex characters in ${type} value`,
+          { type, value: val, hint: 'Only 0-9 and a-f characters allowed after 0x' }
+        );
+      }
       const expectedBytes = parseInt(type.replace('ebytes', ''));
-      const actualBytes = val.replace('0x', '').length / 2;
+      const actualBytes = hexValue.length / 2;
       if (actualBytes !== expectedBytes) {
         throw createEncryptionError(
-          `Invalid byte length for ${type}: expected ${expectedBytes}, got ${actualBytes}`,
-          { type, expected: expectedBytes, actual: actualBytes }
+          `Invalid byte length for ${type}: expected ${expectedBytes} bytes (${expectedBytes * 2} hex chars), got ${actualBytes} bytes (${hexValue.length} hex chars)`,
+          { 
+            type, 
+            expected: `${expectedBytes} bytes`,
+            actual: `${actualBytes} bytes`,
+            hint: `Your hex string should be ${expectedBytes * 2} characters long after 0x`
+          }
         );
       }
       break;

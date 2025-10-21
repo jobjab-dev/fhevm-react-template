@@ -52,7 +52,7 @@ Complete list of error codes in FHEVM SDK.
 ## Example
 
 ```typescript
-import { isFhevmError, formatErrorMessage } from 'fhevm-sdk-universal';
+import { isFhevmError, formatErrorMessage } from 'jobjab-fhevm-sdk';
 
 try {
   await client.encrypt(...);

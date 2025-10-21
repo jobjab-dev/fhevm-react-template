@@ -3,13 +3,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useDeployedContractInfo } from "../helper";
 import { useWagmiEthers } from "../wagmi/useWagmiEthers";
-import { FhevmInstance, externalTypeToFheType } from "fhevm-sdk";
+import { FhevmInstance, externalTypeToFheType } from "jobjab-fhevm-sdk";
 import {
   buildParamsFromAbi,
   useFHEDecrypt,
   useFHEEncryption,
   useInMemoryStorage,
-} from "fhevm-sdk";
+} from "jobjab-fhevm-sdk";
 import { ethers } from "ethers";
 import type { Contract } from "~~/utils/helper/contract";
 import type { AllowedChainIds } from "~~/utils/helper/networks";

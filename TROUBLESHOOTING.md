@@ -265,7 +265,7 @@ const tx = await contract.myFunction(..., {
 
 **Symptom:**
 ```
-Error: Cannot find module 'fhevm-sdk'
+Error: Cannot find module 'jobjab-fhevm-sdk'
 ```
 
 **Solution:**
@@ -281,7 +281,7 @@ pnpm install
 
 **Symptom:**
 ```
-TS2307: Cannot find module 'fhevm-sdk/core'
+TS2307: Cannot find module 'jobjab-fhevm-sdk/core'
 ```
 
 **Solution:**
@@ -726,7 +726,7 @@ npx http-server examples/vanilla-js
 **Solution:**
 ```typescript
 // Use IndexedDB instead of LocalStorage
-import { createStorage } from 'fhevm-sdk/core';
+import { createStorage } from 'jobjab-fhevm-sdk/core';
 
 const storage = createStorage('indexedDB'); // Larger capacity
 client.setStorage(storage);
@@ -828,10 +828,10 @@ pnpm next:build
 **Solution:**
 ```typescript
 // Dynamic imports
-const { createFhevmClient } = await import('fhevm-sdk/core');
+const { createFhevmClient } = await import('jobjab-fhevm-sdk/core');
 
 // Tree shaking
-import { createFhevmClient } from 'fhevm-sdk/core'; // Not /index
+import { createFhevmClient } from 'jobjab-fhevm-sdk/core'; // Not /index
 ```
 
 ---
