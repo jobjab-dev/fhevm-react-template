@@ -52,7 +52,7 @@ function YourApp() {
 - ⚡ **Performance** - Batch operations (3-5x faster), caching
 - 🔐 **Complete** - Encrypt, decrypt (user + public), EIP-712
 - 🚨 **Error Handling** - Helpful error codes and suggestions
-- 🧪 **Tested** - 43/43 tests passing
+- 🧪 **Tested** - 142+ tests passing
 
 ## API
 

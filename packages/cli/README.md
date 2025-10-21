@@ -337,7 +337,7 @@ node dist/cli.js encrypt 42
 
 ## 📖 Learn More
 
-- [FHEVM SDK Documentation](../fhevm-sdk/README.md)
+- [FHEVM SDK Documentation](https://www.npmjs.com/package/jobjab-fhevm-sdk)
 - [Contract Tooling Guide](../../CONTRACTS.md)
 - [Zama Documentation](https://docs.zama.ai/)
 

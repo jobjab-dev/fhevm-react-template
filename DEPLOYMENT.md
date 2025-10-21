@@ -197,7 +197,7 @@ Auto-deploys on:
 
 ### GitHub Actions
 
-See `.github/workflows/` for CI/CD setup.
+CI/CD workflows available in `.github/workflows/` (currently disabled for manual deployment).
 
 ---
 

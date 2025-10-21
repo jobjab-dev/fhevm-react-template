@@ -4,6 +4,7 @@
 
 [![License](https://img.shields.io/badge/license-BSD--3--Clause--Clear-blue.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)](https://www.typescriptlang.org/)
+[![Tests](https://img.shields.io/badge/tests-142%2B%20passing-brightgreen.svg)]()
 [![npm](https://img.shields.io/badge/npm-jobjab--fhevm--sdk-red.svg)](https://www.npmjs.com/package/jobjab-fhevm-sdk)
 
 **🌐 Live Demo:** https://jobjab-fhevm-react-template-nextjs.vercel.app/  
@@ -144,7 +145,7 @@ cd packages/cli && pnpm install && pnpm build
 **Quality:**
 - 142+ tests passing
 - Full TypeScript support
-- CI/CD with GitHub Actions
+- Comprehensive test coverage
 
 **Live Showcase:**
 - 🔢 **Private Counter** - Fully functional encrypted counter with increment/decrement
@@ -217,7 +218,7 @@ examples/
 
 **Includes:** SDK • CLI • Contracts • Next.js Demo • 4 Framework Examples • 10 Code Examples
 
-🎨 **Live Demo:** [Private Counter →](examples/showcase/) | 💡 **More Ideas:** [Secret Bidding, Private Poll →](examples/showcase/)
+🎨 **Live Demo:** [Private Counter on Vercel →](https://jobjab-fhevm-react-template-nextjs.vercel.app/) | 💡 **More Ideas:** [Secret Bidding, Private Poll →](examples/showcase/)
 
 ---
 
