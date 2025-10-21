@@ -4,12 +4,11 @@
 
 [![License](https://img.shields.io/badge/license-BSD--3--Clause--Clear-blue.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)](https://www.typescriptlang.org/)
-[![Tests](https://img.shields.io/badge/tests-142%2F142%20passing-brightgreen.svg)]()
 [![npm](https://img.shields.io/badge/npm-jobjab--fhevm--sdk-red.svg)](https://www.npmjs.com/package/jobjab-fhevm-sdk)
 
-**🌐 Live Demo:** [https://fhevm-sdk-demo.vercel.app](https://fhevm-sdk-demo.vercel.app)  
-**📦 npm Package:** [https://www.npmjs.com/package/jobjab-fhevm-sdk](https://www.npmjs.com/package/jobjab-fhevm-sdk)
-**📚 Full Documentation:** [docs/](docs/)
+**🌐 Live Demo:** https://jobjab-fhevm-react-template-nextjs.vercel.app/
+**📦 npm Package:** https://www.npmjs.com/package/jobjab-fhevm-sdk
+**📚 Full Documentation:** https://github.com/jobjab-dev/fhevm-react-template/tree/main/docs
 
 **Works with:** React • Vue • Node.js • Vanilla JS • Any JavaScript framework
 
@@ -142,7 +141,7 @@ cd packages/cli && pnpm install && pnpm build
 - Performance: Batch operations (3-5x faster)
 
 **Quality:**
-- 142/142 tests passing
+- 142+ tests passing
 - Full TypeScript support
 - CI/CD with GitHub Actions
 
@@ -188,7 +187,7 @@ pnpm start          # Start app
 
 # SDK
 pnpm sdk:build      # Build
-pnpm sdk:test       # Test (142 tests)
+pnpm sdk:test       # Test (142+ tests)
 
 # CLI
 fhevm init          # Setup
@@ -239,7 +238,7 @@ examples/
 - ✅ CLI tool (4 commands)
 - ✅ 57 error codes with helpful messages
 - ✅ Full TypeScript support
-- ✅ 43/43 tests passing
+- ✅ 142+ tests passing
 
 📋 **[See Complete Feature List →](FEATURES.md)**
 
@@ -267,4 +266,4 @@ For major changes, please open an issue first to discuss proposed changes.
 
 ---
 
-**Built with ❤️ for the confidential computing community**
+**Built with ❤️ for the Zama community**
