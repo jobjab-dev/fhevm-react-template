@@ -8,6 +8,7 @@
 
 **🌐 Live Demo:** https://jobjab-fhevm-react-template-nextjs.vercel.app/  
 **📦 npm Package:** https://www.npmjs.com/package/jobjab-fhevm-sdk  
+**🎬 Video Walkthrough:** https://www.youtube.com/watch?v=ASWVwOE1iPk  
 **📚 Full Documentation:** https://github.com/jobjab-dev/fhevm-react-template/tree/main/docs
 
 **Works with:** React • Vue • Node.js • Vanilla JS • Any JavaScript framework
